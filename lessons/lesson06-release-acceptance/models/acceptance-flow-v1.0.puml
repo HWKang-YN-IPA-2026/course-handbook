@@ -1,0 +1,29 @@
+@startuml
+title 实践一 v1.0 验收流程
+start
+:记录候选提交哈希;
+:检查环境;
+:从空数据库重放 v0.2→v0.3→v0.4;
+:执行 AC-01..AC-10;
+if (数据库检查全部通过?) then (是)
+  :执行 AC-11 JDBC 与并发检查;
+else (否)
+  :记录失败并修复;
+  stop
+endif
+if (AC-11 通过?) then (是)
+  :交换小组复验;
+else (否)
+  :记录失败并修复;
+  stop
+endif
+:教师公布 AC-12;
+:影响分析、实现、回归;
+if (全部通过?) then (是)
+  :完成发布检查表;
+  :创建 practice-1-v1.0 标签;
+else (否)
+  :保留失败证据，继续修复;
+endif
+stop
+@enduml

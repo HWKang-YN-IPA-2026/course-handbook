@@ -1,0 +1,37 @@
+@startuml
+title 选课系统 v0.4 领域模型
+hide methods
+class School
+class Student
+class AcademicTerm
+class Course {
+  retakePolicy
+}
+class TeachingClass {
+  capacity
+  externalCapacity
+}
+class CourseSharing {
+  quota
+  validFrom
+  validTo
+}
+class Enrollment {
+  enrolledAt
+  finalScore
+  passed
+}
+School "1" -- "*" Student
+School "1" -- "*" Course : 开设
+Course "1" -- "*" TeachingClass
+AcademicTerm "1" -- "*" TeachingClass
+Student "1" -- "*" Enrollment
+TeachingClass "1" -- "*" Enrollment
+Course "1" -- "*" CourseSharing
+AcademicTerm "1" -- "*" CourseSharing
+School "2" -- "*" CourseSharing : 主办/合作
+note right of Enrollment
+同一学生、课程、学期唯一
+成绩与通过状态同时为空或同时有值
+end note
+@enduml

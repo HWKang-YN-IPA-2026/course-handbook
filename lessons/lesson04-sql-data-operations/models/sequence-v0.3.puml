@@ -1,0 +1,19 @@
+@startuml
+actor Student
+participant "EnrollmentService" as Service
+database PostgreSQL
+Student -> Service : enroll(studentId,classId)
+Service -> PostgreSQL : 查询学生、教学班、课程与学期
+PostgreSQL --> Service : 学校、状态、容量
+alt 外校学生
+  Service -> PostgreSQL : 查询有效CourseSharing
+  PostgreSQL --> Service : quota / 无记录
+  Service -> PostgreSQL : 统计合作学校外校人数
+end
+Service -> PostgreSQL : 写入Enrollment
+PostgreSQL --> Service : 成功或约束错误
+Service --> Student : 结果
+note over Service,PostgreSQL
+第05次课把判断与写入放入同一事务，处理并发。
+end note
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+title UC-001系统时序图 v0.1
+actor 学生 as Student
+participant 选课系统 as System
+participant 教务基础数据系统 as Registry
+
+Student -> System : 提交选课请求(studentId, courseId)
+System -> Registry : 查询学生资格和课程状态
+Registry --> System : 返回基础数据
+System -> System : 检查重复和容量
+alt 所有规则通过
+  System -> System : 新增Enrollment
+  System --> Student : SUCCESS(enrollmentId)
+else 学生状态异常
+  System --> Student : STUDENT_INACTIVE
+else 课程关闭
+  System --> Student : COURSE_CLOSED
+else 已经选过
+  System --> Student : DUPLICATE_ENROLLMENT
+else 人数达到容量
+  System --> Student : COURSE_FULL
+end
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+actor User
+participant "登录系统" as System
+User -> System: 填写本组交互消息
+@enduml

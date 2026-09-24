@@ -1,0 +1,5 @@
+@startuml
+start
+:填写本组活动步骤;
+stop
+@enduml

@@ -1,0 +1,3 @@
+@startuml
+class "填写本组领域对象" as DomainObject
+@enduml

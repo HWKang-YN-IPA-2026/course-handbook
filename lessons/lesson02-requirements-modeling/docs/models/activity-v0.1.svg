@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <style>text{font-family:"Microsoft YaHei",sans-serif;fill:#172b3a}.title{font-size:31px;font-weight:700}.label{font-size:20px}.rule{font-size:17px;fill:#5b1875}.lane{fill:#f7f5fc;stroke:#d8d0ee}.action{fill:#fff;stroke:#6b58c7;stroke-width:2}.decision{fill:#fbf7ee;stroke:#b17818;stroke-width:2}.fail{fill:#fff5f5;stroke:#b84b56;stroke-width:2}.ok{fill:#f1faf7;stroke:#27856a;stroke-width:2}.line{stroke:#778391;stroke-width:2;fill:none}</style>
+  <text class="title" x="600" y="45" text-anchor="middle">UC-001 办理选课活动图 v0.1</text>
+  <rect class="lane" x="60" y="75" width="240" height="775"/><rect class="lane" x="300" y="75" width="840" height="775"/>
+  <text class="label" x="180" y="112" text-anchor="middle">学生</text><text class="label" x="720" y="112" text-anchor="middle">选课系统</text>
+  <circle cx="180" cy="160" r="13" fill="#172b3a"/><rect class="action" x="95" y="205" width="170" height="55" rx="10"/><text class="label" x="180" y="240" text-anchor="middle">提交选课请求</text>
+  <path class="line" d="M180 173 V205 M265 233 H430"/>
+  <polygon class="decision" points="540,185 650,233 540,281 430,233"/><text class="label" x="540" y="226" text-anchor="middle">学生正常？</text><text class="rule" x="540" y="251" text-anchor="middle">BR-001</text>
+  <path class="line" d="M650 233 H715"/><text class="rule" x="682" y="218">是</text><rect class="decision" x="715" y="188" width="210" height="90" transform="rotate(0)" rx="45"/><text class="label" x="820" y="226" text-anchor="middle">课程开放？</text><text class="rule" x="820" y="252" text-anchor="middle">BR-002</text>
+  <path class="line" d="M820 278 V330"/><text class="rule" x="830" y="310">是</text><polygon class="decision" points="820,330 935,380 820,430 705,380"/><text class="label" x="820" y="373" text-anchor="middle">没有重复？</text><text class="rule" x="820" y="399" text-anchor="middle">BR-004</text>
+  <path class="line" d="M820 430 V480"/><text class="rule" x="830" y="465">是</text><polygon class="decision" points="820,480 935,530 820,580 705,530"/><text class="label" x="820" y="523" text-anchor="middle">人数&lt;容量？</text><text class="rule" x="820" y="549" text-anchor="middle">BR-003</text>
+  <path class="line" d="M820 580 V625"/><text class="rule" x="830" y="610">是</text><rect class="ok" x="705" y="625" width="230" height="58" rx="10"/><text class="label" x="820" y="661" text-anchor="middle">新增 Enrollment</text><path class="line" d="M820 683 V720"/><rect class="ok" x="690" y="720" width="260" height="58" rx="10"/><text class="label" x="820" y="756" text-anchor="middle">SUCCESS + 记录编号</text>
+  <path class="line" d="M540 281 V790 H390"/><text class="rule" x="550" y="310">否</text><rect class="fail" x="315" y="760" width="235" height="58" rx="10"/><text class="label" x="433" y="796" text-anchor="middle">STUDENT_INACTIVE</text>
+  <path class="line" d="M925 233 H1040 V330"/><text class="rule" x="947" y="218">否</text><rect class="fail" x="950" y="330" width="170" height="58" rx="10"/><text class="label" x="1035" y="366" text-anchor="middle">COURSE_CLOSED</text>
+  <path class="line" d="M935 380 H1040 V445"/><text class="rule" x="950" y="365">否</text><rect class="fail" x="930" y="445" width="205" height="58" rx="10"/><text class="label" x="1033" y="481" text-anchor="middle">DUPLICATE</text>
+  <path class="line" d="M935 530 H1040 V590"/><text class="rule" x="950" y="515">否</text><rect class="fail" x="950" y="590" width="170" height="58" rx="10"/><text class="label" x="1035" y="626" text-anchor="middle">COURSE_FULL</text>
+  <text class="rule" x="720" y="835">所有失败路径：不新增 Enrollment，记录数不变</text>
+</svg>

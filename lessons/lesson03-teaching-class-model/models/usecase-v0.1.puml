@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+actor 学生
+rectangle "选课系统 v0.1" {
+  usecase "选择课程" as UC1
+}
+学生 --> UC1
+note right of UC1
+输入只有 studentId 与 courseId
+无法指出具体教学班
+end note
+@enduml

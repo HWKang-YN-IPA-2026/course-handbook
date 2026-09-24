@@ -1,5 +1,7 @@
 # 第05次课教师演示：连接查询与JDBC
 
+配套模型、版本演化与事务设计证据分别位于[`models/`](models/)和[`teacher-artifacts/`](teacher-artifacts/)，学生模板位于[`student-templates/`](student-templates/)。
+
 本目录发布第05次课教师展示代码和预期结果。学生可以在线阅读或Clone本仓库，但不需要、也不应向本公共仓库提交修改。小组作业请在各组私有仓库完成。
 
 ## 实验目标

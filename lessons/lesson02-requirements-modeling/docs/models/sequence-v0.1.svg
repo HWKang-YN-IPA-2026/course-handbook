@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <style>text{font-family:"Microsoft YaHei",sans-serif;fill:#172b3a}.title{font-size:31px;font-weight:700}.label{font-size:21px}.small{font-size:18px;fill:#5b1875}.head{fill:#f7f5fc;stroke:#6b58c7;stroke-width:2}.life{stroke:#778391;stroke-width:2;stroke-dasharray:8 6}.msg{stroke:#6b58c7;stroke-width:2}.ret{stroke:#27856a;stroke-width:2}.alt{fill:none;stroke:#5b1875;stroke-width:2}</style>
+  <text class="title" x="600" y="45" text-anchor="middle">UC-001 系统时序图 v0.1</text>
+  <rect class="head" x="95" y="90" width="210" height="62" rx="10"/><rect class="head" x="495" y="90" width="210" height="62" rx="10"/><rect class="head" x="890" y="90" width="230" height="62" rx="10"/>
+  <text class="label" x="200" y="130" text-anchor="middle">学生</text><text class="label" x="600" y="130" text-anchor="middle">选课系统</text><text class="label" x="1005" y="118" text-anchor="middle">教务基础</text><text class="label" x="1005" y="143" text-anchor="middle">数据系统</text>
+  <path class="life" d="M200 152 V700 M600 152 V700 M1005 152 V700"/>
+  <path class="msg" d="M200 215 H600"/><polygon points="600,215 586,208 586,222" fill="#6b58c7"/><text class="small" x="400" y="202" text-anchor="middle">1 提交请求(studentId, courseId)</text>
+  <path class="msg" d="M600 280 H1005"/><polygon points="1005,280 991,273 991,287" fill="#6b58c7"/><text class="small" x="803" y="267" text-anchor="middle">2 查询学生资格和课程状态</text>
+  <path class="msg" d="M1005 340 H600"/><polygon points="600,340 614,333 614,347" fill="#778391"/><text class="small" x="803" y="327" text-anchor="middle">3 返回基础数据</text>
+  <rect class="head" x="480" y="385" width="240" height="60" rx="10"/><text class="label" x="600" y="422" text-anchor="middle">4 检查重复和容量</text>
+  <rect class="alt" x="330" y="475" width="560" height="170"/><text class="small" x="345" y="501">alt</text><text class="label" x="410" y="535">[通过] 新增 Enrollment</text><path class="ret" d="M600 565 H200"/><polygon points="200,565 214,558 214,572" fill="#27856a"/><text class="small" x="400" y="553" text-anchor="middle">SUCCESS(enrollmentId)</text>
+  <path d="M330 585 H890" stroke="#d8d0ee"/><text class="label" x="410" y="620">[失败] 不新增记录</text><text class="small" x="610" y="620">返回四类明确错误代码</text>
+  <text class="small" x="600" y="730" text-anchor="middle">成功和失败结果必须与UC-001、BR及验收条件一致</text>
+</svg>

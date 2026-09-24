@@ -1,0 +1,22 @@
+@startuml
+title v0.4 一次选课事务
+actor Student
+participant EnrollmentService
+database PostgreSQL
+Student -> EnrollmentService : enroll(studentId, classId, asOf)
+EnrollmentService -> PostgreSQL : BEGIN
+EnrollmentService -> PostgreSQL : SELECT teaching_class FOR UPDATE
+EnrollmentService -> PostgreSQL : 查询学生、历史、同期记录
+alt 外校学生
+  EnrollmentService -> PostgreSQL : 查询生效协议与合作校已用名额
+end
+EnrollmentService -> PostgreSQL : 查询总容量
+alt 全部规则满足
+  EnrollmentService -> PostgreSQL : INSERT enrollment
+  EnrollmentService -> PostgreSQL : COMMIT
+  EnrollmentService --> Student : ENROLLED
+else 任一规则失败
+  EnrollmentService -> PostgreSQL : ROLLBACK
+  EnrollmentService --> Student : 稳定拒绝码
+end
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+entity school { * school_id : varchar <<PK>>; --; school_name : varchar <<UQ>> }
+entity student { * student_id : varchar <<PK>>; --; school_id : varchar <<FK>>; status : varchar }
+entity course { * course_id : varchar <<PK>>; --; host_school_id : varchar <<FK>> }
+entity academic_term { * term_id : varchar <<PK>>; --; start_date : date; end_date : date }
+entity teaching_class { * class_id : varchar <<PK>>; --; course_id : varchar <<FK>>; term_id : varchar <<FK>>; capacity : int; external_capacity : int }
+entity course_sharing { * sharing_id : bigint <<PK>>; --; course_id : varchar <<FK>>; partner_school_id : varchar <<FK>>; term_id : varchar <<FK>>; quota : int; valid_from : date; valid_to : date }
+entity enrollment { * enrollment_id : bigint <<PK>>; --; student_id : varchar <<FK>>; class_id : varchar <<FK>>; course_id : varchar; term_id : varchar }
+school ||--o{ student
+school ||--o{ course
+school ||--o{ course_sharing
+course ||--o{ teaching_class
+course ||--o{ course_sharing
+academic_term ||--o{ teaching_class
+academic_term ||--o{ course_sharing
+student ||--o{ enrollment
+teaching_class ||--o{ enrollment
+@enduml

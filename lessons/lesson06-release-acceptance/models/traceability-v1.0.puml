@@ -1,0 +1,18 @@
+@startuml
+title v1.0 制品追溯关系
+rectangle 需求 as R
+rectangle UML模型 as M
+database PostgreSQL迁移 as D
+rectangle JDBC服务 as C
+rectangle 自动验收 as T
+rectangle 验收报告 as A
+rectangle 发布标签 as G
+R --> M : 细化
+R --> T : 验收条件
+M --> D : 数据结构
+M --> C : 协作与规则
+D --> T : 数据库证据
+C --> T : 行为证据
+T --> A : 实际结果
+A --> G : 发布门禁
+@enduml

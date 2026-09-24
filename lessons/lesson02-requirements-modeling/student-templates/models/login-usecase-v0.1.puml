@@ -1,0 +1,8 @@
+@startuml
+left to right direction
+actor User
+rectangle "登录系统" {
+  usecase "填写本组用例" as UC1
+}
+User --> UC1
+@enduml

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <style>text{font-family:"Microsoft YaHei",sans-serif;fill:#172b3a}.title{font-size:32px;font-weight:700}.label{font-size:23px}.small{font-size:18px;fill:#5b1875}.box{fill:#faf9fe;stroke:#5b1875;stroke-width:2}.use{fill:#fff;stroke:#6b58c7;stroke-width:2}.line{stroke:#6b58c7;stroke-width:2;fill:none}.dash{stroke:#778391;stroke-width:2;stroke-dasharray:8 6;fill:none}</style>
+  <text class="title" x="600" y="48" text-anchor="middle">选课系统用例模型 v0.1</text>
+  <rect class="box" x="280" y="85" width="650" height="540"/>
+  <text class="small" x="305" y="120">选课系统 v0.1</text>
+  <rect class="use" x="385" y="160" width="270" height="72" rx="50"/><text class="label" x="520" y="205" text-anchor="middle">办理选课</text>
+  <rect class="use" x="385" y="490" width="270" height="72" rx="50"/><text class="label" x="520" y="535" text-anchor="middle">查看选课结果</text>
+  <rect class="use" x="705" y="135" width="190" height="62" rx="40"/><text class="label" x="800" y="174" text-anchor="middle">校验学生资格</text>
+  <rect class="use" x="705" y="245" width="190" height="62" rx="40"/><text class="label" x="800" y="284" text-anchor="middle">校验课程状态</text>
+  <rect class="use" x="705" y="355" width="190" height="62" rx="40"/><text class="label" x="800" y="394" text-anchor="middle">校验重复选课</text>
+  <rect class="use" x="705" y="465" width="190" height="62" rx="40"/><text class="label" x="800" y="504" text-anchor="middle">校验容量并登记</text>
+  <rect class="use" x="40" y="260" width="175" height="95" rx="12"/><text class="label" x="128" y="300" text-anchor="middle">«actor»</text><text class="label" x="128" y="334" text-anchor="middle">学生</text>
+  <rect class="use" x="985" y="260" width="180" height="115" rx="12"/><text class="label" x="1075" y="297" text-anchor="middle">«actor»</text><text class="label" x="1075" y="329" text-anchor="middle">教务基础</text><text class="label" x="1075" y="360" text-anchor="middle">数据系统</text>
+  <path class="line" d="M215 290 L385 196 M215 330 L385 526 M895 166 L985 295 M895 276 L985 330"/>
+  <path class="dash" d="M655 182 L705 166 M655 190 L705 276 M655 202 L705 386 M655 214 L705 496"/>
+  <text class="small" x="665" y="153">«include»</text><text class="small" x="660" y="267">«include»</text><text class="small" x="660" y="377">«include»</text><text class="small" x="660" y="487">«include»</text>
+  <text class="small" x="520" y="255" text-anchor="middle">US-001 / UC-001</text><text class="small" x="800" y="552" text-anchor="middle">DEC-001 / BR-003</text>
+  <text class="small" x="600" y="675" text-anchor="middle">边界之外：候补、教师批准超额、容量调整与审批</text>
+</svg>

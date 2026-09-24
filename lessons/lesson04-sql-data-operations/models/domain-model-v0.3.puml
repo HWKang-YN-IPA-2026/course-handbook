@@ -1,0 +1,18 @@
+@startuml
+class School { schoolId; name }
+class Student { studentId; status; schoolId }
+class Course { courseId; hostSchoolId }
+class AcademicTerm { termId; startDate; endDate }
+class TeachingClass { classId; capacity; externalCapacity; status }
+class CourseSharing { quota; validFrom; validTo }
+class Enrollment { enrolledAt }
+School "1" -- "*" Student
+School "1" -- "*" Course : hosts
+School "1" -- "*" CourseSharing : partner
+Course "1" -- "*" CourseSharing
+AcademicTerm "1" -- "*" CourseSharing
+Course "1" -- "*" TeachingClass
+AcademicTerm "1" -- "*" TeachingClass
+Student "1" -- "*" Enrollment
+TeachingClass "1" -- "*" Enrollment
+@enduml

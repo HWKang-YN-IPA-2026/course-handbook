@@ -1,0 +1,22 @@
+@startuml
+class Student {
+  studentId
+  status
+}
+class Course {
+  courseId
+  name
+  open
+  capacity
+}
+class Enrollment {
+  enrollmentId
+  createdAt
+  status
+}
+Student "1" -- "0..*" Enrollment
+Course "1" -- "0..*" Enrollment
+note bottom of Course
+旧假设：Course就是可选对象
+end note
+@enduml

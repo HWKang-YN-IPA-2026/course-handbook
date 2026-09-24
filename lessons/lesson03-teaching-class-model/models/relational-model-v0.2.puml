@@ -1,0 +1,46 @@
+@startuml
+hide circle
+entity student {
+  * student_id : varchar <<PK>>
+  --
+  student_name : varchar
+  status : varchar
+}
+entity course {
+  * course_id : varchar <<PK>>
+  --
+  course_name : varchar
+}
+entity academic_term {
+  * term_id : varchar <<PK>>
+  --
+  term_name : varchar
+  start_date : date
+  end_date : date
+}
+entity teaching_class {
+  * class_id : varchar <<PK>>
+  --
+  course_id : varchar <<FK>>
+  term_id : varchar <<FK>>
+  class_name : varchar
+  teacher_name : varchar
+  schedule_text : varchar
+  capacity : integer
+  status : varchar
+}
+entity enrollment {
+  * enrollment_id : bigint <<PK>>
+  --
+  student_id : varchar <<FK>>
+  class_id : varchar <<FK (composite)>>
+  course_id : varchar <<FK (composite)>>
+  term_id : varchar <<FK (composite)>>
+  enrolled_at : timestamp
+  UNIQUE(student_id, course_id, term_id)
+}
+course ||--o{ teaching_class
+academic_term ||--o{ teaching_class
+student ||--o{ enrollment
+teaching_class ||--o{ enrollment
+@enduml

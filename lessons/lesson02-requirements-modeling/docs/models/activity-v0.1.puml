@@ -1,0 +1,31 @@
+@startuml
+title UC-001办理选课活动图 v0.1
+|学生|
+start
+:提交选课请求;
+|选课系统|
+if (学生状态正常？\nBR-001) then (是)
+  if (课程开放？\nBR-002) then (是)
+    if (不存在重复记录？\nBR-004) then (是)
+      if (已选人数 < 容量？\nBR-003) then (是)
+        :新增Enrollment;
+        :返回SUCCESS和记录编号;
+      else (否)
+        :返回COURSE_FULL;
+      endif
+    else (否)
+      :返回DUPLICATE_ENROLLMENT;
+    endif
+  else (否)
+    :返回COURSE_CLOSED;
+  endif
+else (否)
+  :返回STUDENT_INACTIVE;
+endif
+note right
+任何失败路径：
+不新增Enrollment
+记录数不变
+end note
+stop
+@enduml

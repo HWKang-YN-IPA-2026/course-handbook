@@ -7,9 +7,12 @@
 - [48学时教学大纲](syllabus.md)
 - [48学时教学周历](calendar.md)
 - [GitHub课程仓库建设与制品管理方案](github-management.md)
+- [第01次课：课程环境与首次提交](lessons/lesson01-environment-setup/README.md)
+- [第02次课：需求分析、UML与用户登录作业](lessons/lesson02-requirements-modeling/README.md)
 - [第03次课教师演示：课程、教学班与学期](lessons/lesson03-teaching-class-model/README.md)
 - [第04次课教师演示：SQL数据操作](lessons/lesson04-sql-data-operations/README.md)
 - [第05次课教师演示：连接查询与JDBC](lessons/lesson05-jdbc-evolution/README.md)
+- [第06次课：发布验收](lessons/lesson06-release-acceptance/README.md)
 
 ## 课程项目
 

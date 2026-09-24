@@ -1,0 +1,15 @@
+@startuml
+start
+:学生提交 studentId 与 classId;
+:系统读取教学班的 courseId 与 termId;
+if (教学班存在?) then (是)
+  if (已有相同 studentId、courseId、termId?) then (是)
+    :拒绝并返回 DUPLICATE_COURSE_IN_TERM;
+  else (否)
+    :登记 Enrollment;
+  endif
+else (否)
+  :拒绝并返回 CLASS_NOT_FOUND;
+endif
+stop
+@enduml

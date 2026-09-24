@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+actor 学生
+rectangle "选课系统 v0.2" {
+  usecase "选择教学班" as UC2
+  usecase "识别课程与学期" as UCA
+  usecase "检查同课程同学期重复" as UCB
+}
+学生 --> UC2
+UC2 .> UCA : <<include>>
+UC2 .> UCB : <<include>>
+@enduml

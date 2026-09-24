@@ -1,0 +1,21 @@
+@startuml
+actor Student as 学生
+participant "选课系统" as System
+database Database as DB
+
+学生 -> System : enroll(studentId, classId)
+System -> DB : 读取TeachingClass的courseId、termId
+DB --> System : 教学班事实
+System -> DB : 查询相同studentId+courseId+termId
+DB --> System : 已存在 / 不存在
+alt 已存在
+  System --> 学生 : DUPLICATE_COURSE_IN_TERM
+else 不存在
+  System -> DB : 新增Enrollment
+  System --> 学生 : 选课成功
+end
+
+note bottom
+系统保持黑盒；本课不引入Controller、Service、DAO。
+end note
+@enduml

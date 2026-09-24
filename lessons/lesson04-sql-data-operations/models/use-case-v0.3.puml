@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+actor "本校学生" as Local
+actor "外校学生" as External
+rectangle "选课系统 v0.3" {
+  usecase "查询教学班" as Search
+  usecase "提交选课" as Enroll
+  usecase "校验总容量" as Total
+  usecase "校验共享协议" as Agreement
+  usecase "校验外校配额" as Quota
+}
+Local --> Search
+Local --> Enroll
+External --> Search
+External --> Enroll
+Enroll .> Total : <<include>>
+Enroll .> Agreement : <<include>>\n仅外校
+Enroll .> Quota : <<include>>\n仅外校
+@enduml

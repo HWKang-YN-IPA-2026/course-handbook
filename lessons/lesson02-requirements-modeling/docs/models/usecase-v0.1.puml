@@ -1,0 +1,28 @@
+@startuml
+title 选课系统用例模型 v0.1
+left to right direction
+actor 学生 as Student
+actor 教务基础数据系统 as Registry
+rectangle "选课系统 v0.1" {
+  usecase "办理选课" as Enroll
+  usecase "查看选课结果" as View
+  usecase "校验学生资格" as CheckStudent
+  usecase "校验课程状态" as CheckCourse
+  usecase "校验重复选课" as CheckDuplicate
+  usecase "校验容量并登记" as CheckCapacity
+}
+Student --> Enroll
+Student --> View
+Enroll .> CheckStudent : <<include>>
+Enroll .> CheckCourse : <<include>>
+Enroll .> CheckDuplicate : <<include>>
+Enroll .> CheckCapacity : <<include>>
+Registry --> CheckStudent
+Registry --> CheckCourse
+note bottom of Enroll
+US-001 / UC-001
+end note
+note bottom of CheckCapacity
+DEC-001 / BR-003
+end note
+@enduml

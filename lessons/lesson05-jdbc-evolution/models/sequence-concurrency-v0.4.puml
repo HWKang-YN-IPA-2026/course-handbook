@@ -1,0 +1,17 @@
+@startuml
+title 最后一席并发时间线
+participant RequestA
+participant RequestB
+database PostgreSQL
+RequestA -> PostgreSQL : BEGIN; SELECT class FOR UPDATE
+activate PostgreSQL
+RequestB -> PostgreSQL : BEGIN; SELECT class FOR UPDATE
+note right of RequestB : 等待同一教学班行锁
+RequestA -> PostgreSQL : count=0; INSERT; COMMIT
+deactivate PostgreSQL
+activate PostgreSQL
+PostgreSQL --> RequestB : 获得行锁
+RequestB -> PostgreSQL : count=1，容量=1
+RequestB -> PostgreSQL : ROLLBACK
+deactivate PostgreSQL
+@enduml

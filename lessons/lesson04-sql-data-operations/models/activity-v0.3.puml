@@ -1,0 +1,21 @@
+@startuml
+start
+:读取学生、课程、教学班与学期;
+if (学生与开课学校相同?) then (是)
+  :检查总容量;
+else (否)
+  :查找当日有效共享协议;
+  if (协议有效?) then (是)
+    :计算 min(外校容量, 协议配额);
+    :统计该合作学校外校人数;
+  else (否)
+    stop
+  endif
+endif
+if (名额可用?) then (是)
+  :写入Enrollment;
+else (否)
+  stop
+endif
+stop
+@enduml

@@ -1,5 +1,7 @@
 # 第04次课教师演示：SQL数据操作
 
+配套PlantUML模型位于[`models/`](models/)，学生空白提交结构位于[`student-templates/`](student-templates/README.md)。
+
 本目录发布第04次课教师展示代码和预期结果。学生可以在线阅读或Clone本仓库，但不需要、也不应向本公共仓库提交修改。小组作业请在各组私有仓库完成。
 
 ## 实验目标

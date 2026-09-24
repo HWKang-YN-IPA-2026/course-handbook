@@ -31,4 +31,3 @@ JOIN v01_course c ON c.course_id = e.course_id;
 
 -- 讨论：若把01班和02班复制成两条Course，课程定义会重复；
 -- 若只增加class_name字段，一条Course仍无法同时表示多个教学班。
-

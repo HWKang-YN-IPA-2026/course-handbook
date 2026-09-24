@@ -1,0 +1,27 @@
+@startuml
+title 选课领域类图 v0.1
+hide methods
+class Student {
+  studentId: String
+  status: StudentStatus
+}
+class Enrollment {
+  enrollmentId: String
+  studentId: String
+  courseId: String
+  createdAt: DateTime
+}
+class Course {
+  courseId: String
+  name: String
+  open: boolean
+  capacity: int
+  enrolledCount: int
+}
+Student "1" -- "0..*" Enrollment : 拥有
+Course "1" -- "0..*" Enrollment : 被选择
+note bottom of Course
+v0.2引入CourseOffering后，
+open、capacity和enrolledCount迁移到教学班。
+end note
+@enduml
