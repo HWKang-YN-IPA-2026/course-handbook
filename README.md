@@ -9,6 +9,7 @@
 - [GitHub课程仓库建设与制品管理方案](github-management.md)
 - [第03次课教师演示：课程、教学班与学期](lessons/lesson03-teaching-class-model/README.md)
 - [第04次课教师演示：SQL数据操作](lessons/lesson04-sql-data-operations/README.md)
+- [第05次课教师演示：连接查询与JDBC](lessons/lesson05-jdbc-evolution/README.md)
 
 ## 课程项目
 
